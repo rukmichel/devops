@@ -51,6 +51,7 @@ locals {
 module "azuremonitoring" {
   source             = "./azuremonitoring"
   alert_policy_lists = local.alert_policy_config["alert_policy_lists"]
+  subscription_id = var.subscription_id
 }
 
 output "monitor_action_group_id" {

@@ -8,16 +8,13 @@ variable "resource_group_location" {
 variable "environment" {
   default = "dev"
 }
-variable "subscription_id" {
-  default = "dev"
-}
+variable "subscription_id" {}
 variable "alert_policy_lists" {
   description = "List of alert policies."
   type = list(object({
     alert_name           = string
     target_resource_name = string
     metric_namespace     = string
-    resource_id          = string
     metric_name          = string
     operator             = string
     threshold            = number
