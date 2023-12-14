@@ -9,7 +9,7 @@ data "azurerm_client_config" "current" {
 resource "azurerm_monitor_action_group" "monitor_action_group" {
   name                = "CriticalAlertsAction"
   resource_group_name = azurerm_resource_group.monitorRg.name
-  short_name          = "criactiongroup"
+  short_name          = "critical-ag"
 
   email_receiver {
     name          = "michel"
