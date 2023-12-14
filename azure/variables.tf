@@ -10,10 +10,9 @@ variable "client_secret"{
 variable "tenant_id"{
   type=string
 }
-
 variable "resource_group_name" {
-  default = "eatus-storage-rg"
+  type=string
 }
 variable "resource_group_location" {
-  default = "East US"
+  type=string
 }
