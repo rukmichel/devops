@@ -3,9 +3,6 @@ resource "azurerm_resource_group" "monitorRg" {
   location = var.resource_group_location
 }
 
-data "azurerm_client_config" "current" {
-}
-
 resource "azurerm_monitor_action_group" "monitor_action_group" {
   name                = "CriticalAlertsAction"
   resource_group_name = azurerm_resource_group.monitorRg.name
