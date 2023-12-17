@@ -10,10 +10,9 @@ variable "client_secret"{
 variable "tenant_id"{
   type=string
 }
-
 variable "resource_group_name" {
-  default = "rg-devOps"
+  type=string
 }
 variable "resource_group_location" {
-  default = "West Europe"
+  type=string
 }
