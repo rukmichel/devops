@@ -1,0 +1,43 @@
+#
+alert_policy_lists:
+  - display_name: "VM Instance - CPU alerts"
+    combiner: "OR"
+    conditions:
+      - display_name: "VM Instance - CPU usage"
+        condition_threshold:
+          filter: "resource.type = \"gce_instance\" AND metric.type = \"compute.googleapis.com/instance/cpu/usage_time\""
+          duration: "60s"
+          comparison: "COMPARISON_GT"
+          threshold_value: 80
+          aggregations: 
+            alignment_period: "60s"
+            per_series_aligner: "ALIGN_RATE"
+
+      - display_name: "VM Instance - CPU utilization"
+        condition_threshold:
+          filter: "resource.type = \"gce_instance\" AND metric.type = \"compute.googleapis.com/instance/cpu/utilization\""
+          duration: "60s"
+          comparison: "COMPARISON_GT"
+          threshold_value: 0.8
+          aggregations: &id001
+            alignment_period: "60s"
+            per_series_aligner: "ALIGN_MEAN"
+
+  - display_name: "GCS Bucket - alert"
+    combiner: "OR"
+    conditions:
+      - display_name: "GCS Bucket - Object count"
+        condition_threshold:
+          filter: "resource.type = \"gcs_bucket\" AND metric.type = \"storage.googleapis.com/storage/object_count\""
+          duration: "60s"
+          comparison: "COMPARISON_GT"
+          threshold_value: 500
+          aggregations: *id001
+
+      - display_name: "GCS Bucket - Request count"
+        condition_threshold:
+          filter: "resource.type = \"gcs_bucket\" AND metric.type = \"storage.googleapis.com/api/request_count\""
+          duration: "60s"
+          comparison: "COMPARISON_GT"
+          threshold_value: 200
+          aggregations: *id001
