@@ -33,3 +33,5 @@ override.tf.json
 .terraformrc
 terraform.rc
 credentials/*
+utils
+k8t/docker/sqllitedb
