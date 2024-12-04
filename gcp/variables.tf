@@ -12,3 +12,7 @@ variable "storage_bucket_location" {
 variable "alert_policy_config_file_path" {
   type = string
 }
+
+variable "email_notification_channel" {
+  type = string
+}
