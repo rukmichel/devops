@@ -1,0 +1,30 @@
+alert_policy_lists:
+  - alert_name: "storageAccount-metricalert"
+    target_resource_name: "tfstate53yvh"
+    metric_namespace: "Microsoft.Storage/storageAccounts"
+    metric_name: "Transactions"
+    operator: "GreaterThan"
+    threshold: 34
+    aggregation: "Total"
+    dimension: &id001
+      name: "ApiName"
+      operator: "Include"
+      values: ["*"]
+
+  - alert_name: "AzDoAgentLinuxVM-metricalert"
+    target_resource_name: "AzDoAgentLinuxVM"
+    metric_namespace: "Microsoft.Compute/virtualMachines"
+    metric_name: "Percentage CPU"
+    operator: "GreaterThan"
+    threshold: 90
+    aggregation: "Average"
+    dimension: null
+
+  - alert_name: "AzdoAgent2-metricalert"
+    target_resource_name: "AzdoAgent2"
+    metric_namespace: "Microsoft.Compute/virtualMachines"
+    metric_name: "Percentage CPU"
+    operator: "GreaterThan"
+    threshold: 90
+    aggregation: "Average"
+    dimension: null

@@ -32,6 +32,3 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
-credentials/*
-utils
-k8t/docker/sqllitedb
